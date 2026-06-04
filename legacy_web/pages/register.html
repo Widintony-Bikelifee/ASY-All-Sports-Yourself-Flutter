@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - ASY</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/register.css">
+</head>
+
+<body>
+
+<div class="auth-page">
+
+  <!-- LEFT PANEL -->
+  <div class="auth__left">
+    <div class="auth__left-bg"></div>
+    <div class="auth__spotlight"></div>
+    <div class="auth__spotlight-2"></div>
+
+    <div class="auth__players"></div>
+
+    <div class="auth__left-content">
+      <div class="auth__logo">
+        <div class="auth__logo-icon">
+          <img src="../assets/img/Logo-ASY.png" alt="Logo All Sports Yourself">
+        </div>
+      </div>
+
+      <p class="auth__brand-name">All Sports Yourself</p>
+
+      <p class="auth__brand-desc">
+        La plataforma líder para reservar espacios deportivos en
+        <strong>Ipiales</strong>.
+      </p>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="auth__right">
+    <div class="auth__right-inner">
+
+      <!-- TABS -->
+      <div class="auth__tabs">
+        <a href="login.html" class="auth__tab">Iniciar Sesión</a>
+        <button class="auth__tab active">Registrarse</button>
+      </div>
+
+      <h1 class="auth__heading">Crea tu Cuenta</h1>
+      <p class="auth__subheading">Únete a la comunidad deportiva de Ipiales.</p>
+
+      <!-- NAME -->
+      <div class="form__row-2">
+        <div class="form__group">
+          <label class="form__label" for="reg-name">Nombre</label>
+          <div class="form__input-wrap">
+            <input class="form__input" type="text" id="reg-name" placeholder="Tu nombre">
+          </div>
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="reg-lastname">Apellido</label>
+          <div class="form__input-wrap">
+            <input class="form__input" type="text" id="reg-lastname" placeholder="Tu apellido">
+          </div>
+        </div>
+      </div>
+
+      <!-- PHONE -->
+      <div class="form__group">
+        <label class="form__label" for="reg-phone">Teléfono <span style="font-weight:400;opacity:.6">(opcional)</span></label>
+        <div class="form__input-wrap">
+          <span class="form__input-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81
+                       a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81
+                       a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45
+                       c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </span>
+          <input class="form__input" type="tel" id="reg-phone" placeholder="300 123 4567">
+        </div>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="form__group">
+        <label class="form__label" for="reg-email">Correo Electrónico</label>
+        <div class="form__input-wrap">
+          <span class="form__input-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M2 7l10 7 10-7"/>
+            </svg>
+          </span>
+          <input class="form__input" type="email" id="reg-email" placeholder="correo@ejemplo.com">
+        </div>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="form__group">
+        <label class="form__label" for="reg-password">Contraseña</label>
+        <div class="form__input-wrap">
+          <span class="form__input-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0110 0v4"/>
+            </svg>
+          </span>
+          <input class="form__input" type="password" id="reg-password" placeholder="Mínimo 8 caracteres">
+          <button class="form__input-eye" type="button"
+                  onclick="togglePassword('reg-password', this)">
+            <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- CONFIRM PASSWORD -->
+      <div class="form__group">
+        <label class="form__label" for="reg-password2">Confirmar Contraseña</label>
+        <div class="form__input-wrap">
+          <span class="form__input-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0110 0v4"/>
+            </svg>
+          </span>
+          <input class="form__input" type="password" id="reg-password2" placeholder="Repite tu contraseña">
+          <button class="form__input-eye" type="button"
+                  onclick="togglePassword('reg-password2', this)">
+            <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.8"
+                 stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ROLE SELECTOR -->
+      <div class="form__group">
+        <label class="form__label">¿Cómo usarás la plataforma?</label>
+        <div class="role-selector">
+          <label class="role-card">
+            <input type="radio" name="rol" value="user" checked>
+            <div class="role-card__content">
+              <span class="role-card__icon">🏃</span>
+              <span class="role-card__title">Deportista</span>
+              <span class="role-card__desc">Quiero reservar canchas</span>
+            </div>
+          </label>
+          <label class="role-card">
+            <input type="radio" name="rol" value="admin_cancha">
+            <div class="role-card__content">
+              <span class="role-card__icon">🏟️</span>
+              <span class="role-card__title">Administrador</span>
+              <span class="role-card__desc">Quiero ofrecer mi cancha</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- CHECKBOX -->
+      <div class="form__check">
+        <input type="checkbox" id="reg-terms">
+        <label for="reg-terms">
+          Acepto los <a href="#">términos y condiciones</a>
+        </label>
+      </div>
+
+      <!-- BUTTON -->
+      <button class="auth__btn-submit" type="button"
+              onclick="Register.handleSubmit()">
+        Crear Cuenta
+      </button>
+
+      <!-- SWITCH -->
+      <p class="auth__switch">
+        ¿Ya tienes cuenta?
+        <a href="login.html">Inicia sesión</a>
+      </p>
+
+      <!-- BACK -->
+      <div class="auth__back">
+        <a href="../index.html">← Volver al inicio</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="../assets/js/services/supabaseClient.js"></script>
+<script src="../assets/js/services/authService.js"></script>
+
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/register.js"></script>
+</body>
+</html>

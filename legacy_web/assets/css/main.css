@@ -1,0 +1,228 @@
+/* Google Fonts import - Barlow Condensed for headings, Barlow for body text */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap");
+
+/* 
+   GLOBAL CSS VARIABLES - Design tokens
+   All colors, spacing, typography, and
+   reusable values defined here for consistency.
+ */
+:root {
+  /* ── Primary Colors ───────────────────────────────────────────────── */
+  --color-green: #2ecc50;       /* Main green - buttons, highlights */
+  --color-green-dark: #1db53e;  /* Darker green - hover states */
+  --color-green-dim: rgba(46, 204, 80, 0.15);  /* Transparent green - backgrounds */
+  --color-green-glow: rgba(46, 204, 80, 0.35); /* Green glow effect */
+  --color-orange: #ff6b2b;      /* Accent orange - prices, alerts */
+  --color-orange-dim: rgba(255, 107, 43, 0.15); /* Transparent orange */
+  --color-blue: #0a84ff;        /* Link blue - interactive elements */
+  --color-blue-dim: rgba(10, 132, 255, 0.15);   /* Transparent blue */
+
+  /* ── Background Colors ────────────────────────────────────────────── */
+  --bg-dark: #f8faf8;     /* Was dark, now main light background */
+  --bg-dark2: #ffffff;    /* Was dark2, now solid white */
+  --bg-dark3: #eef2ee;    /* Was dark3, now slightly off-white */
+  --bg-card: #ffffff;     /* Card background */
+  --bg-white: #ffffff;    /* White background */
+  --bg-light: #f4f7f4;    /* Light background */
+  --bg-light2: #e8ede8;   /* Slightly darker light */
+
+  /* ── Text Colors ──────────────────────────────────────────────────── */
+  --text-primary: #0d1a0d;    /* Was white, now very dark green/black */
+  --text-secondary: #3a4a3a;  /* Was light gray-green, now dark gray */
+  --text-muted: #7a8f7a;      /* Muted text - gray-green */
+  --text-dark: #0d1a0d;       /* Dark text */
+  --text-dark2: #3a4a3a;      /* Secondary dark text */
+  --text-placeholder: #aabcaa; /* Placeholder text color */
+
+  /* ── Border Colors ────────────────────────────────────────────────── */
+  --border-dark: rgba(0, 0, 0, 0.08);   /* Was white border, now subtle dark */
+  --border-dark2: rgba(0, 0, 0, 0.15);  /* More visible dark border */
+  --border-light: rgba(0, 0, 0, 0.05);    /* Light border */
+  --border-light2: rgba(0, 0, 0, 0.12);   /* Secondary light border */
+
+  /* ── Typography ───────────────────────────────────────────────────── */
+  --font-display: "Barlow Condensed", sans-serif; /* Headings - condensed bold */
+  --font-body: "Barlow", sans-serif;              /* Body text - regular */
+
+  /* ── Font Sizes ────────────────────────────────────────────────────── */
+  --fs-xs: 0.72rem;    /* Extra small - tags, labels */
+  --fs-sm: 0.82rem;    /* Small - secondary text */
+  --fs-base: 0.92rem;  /* Base size */
+  --fs-md: 1rem;       /* Medium - body text */
+  --fs-lg: 1.2rem;     /* Large - emphasized text */
+  --fs-xl: 1.5rem;     /* Extra large - subheadings */
+  --fs-2xl: 2rem;      /* 2x large - section titles */
+  --fs-3xl: 2.8rem;    /* 3x large - page titles */
+  --fs-4xl: 4rem;      /* 4x large - hero text */
+
+  /* ── Spacing ──────────────────────────────────────────────────────── */
+  --space-xs: 0.4rem;  /* Extra small spacing */
+  --space-sm: 0.8rem;  /* Small spacing */
+  --space-md: 1.2rem;  /* Medium spacing */
+  --space-lg: 2rem;    /* Large spacing */
+  --space-xl: 3rem;    /* Extra large spacing */
+  --space-2xl: 4rem;   /* 2x extra large */
+
+  /* ── Border Radius ────────────────────────────────────────────────── */
+  --radius-sm: 6px;    /* Small radius - buttons */
+  --radius-md: 10px;   /* Medium radius - cards */
+  --radius-lg: 14px;   /* Large radius - modals */
+  --radius-xl: 20px;   /* Extra large radius */
+  --radius-full: 9999px; /* Full radius - pills, circles */
+
+  /* ── Shadows ──────────────────────────────────────────────────────── */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);      /* Small shadow */
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.18);     /* Medium shadow */
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.24);     /* Large shadow */
+  --shadow-green: 0 6px 24px rgba(46, 204, 80, 0.3); /* Green glow shadow */
+
+  /* ── Layout ───────────────────────────────────────────────────────── */
+  --nav-h: 68px;       /* Navbar height - used for top padding */
+
+  /* ── Transitions ──────────────────────────────────────────────────── */
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing */
+}
+
+/* 
+   CSS RESET - Normalize browser defaults
+    */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Include padding/border in element width */
+  margin: 0;              /* Remove default margins */
+  padding: 0;             /* Remove default padding */
+}
+
+/* Base HTML styles */
+html {
+  font-size: 16px;                    /* Base font size */
+  scroll-behavior: smooth;            /* Smooth scroll to anchors */
+  -webkit-text-size-adjust: 100%;     /* Prevent font scaling on rotation */
+}
+
+/* Base body styles */
+body {
+  font-family: var(--font-body);      /* Body font family */
+  font-size: var(--fs-md);             /* Base font size */
+  line-height: 1.6;                   /* Comfortable line height */
+  color: var(--text-primary);          /* Primary text color */
+  background-color: var(--bg-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ── GLOBAL UTLITY ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── BASE SHARED BUTTONS── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--fs-base);
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-green);
+  color: #000;
+}
+.btn-primary:hover {
+  background: var(--color-green-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-green);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--border-dark2);
+  color: var(--text-primary);
+}
+.btn-outline:hover {
+  border-color: var(--color-green);
+  color: var(--color-green);
+}
+
+/* ── BASE ANIMATIONS ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}

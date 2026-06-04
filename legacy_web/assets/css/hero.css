@@ -1,0 +1,308 @@
+/* Home page container - dark background for hero section */
+.page-home {
+  background: var(--bg-dark);
+}
+
+/* Hero section - full viewport height, centered content */
+.hero {
+  position: relative; /* For absolute positioning of children */
+  min-height: 100vh; /* Full viewport height */
+  display: flex; /* Flexbox for centering */
+  align-items: center; /* Vertically centered */
+  overflow: hidden; /* Hide overflow content */
+  background-color: var(--bg-light); /* Light background */
+}
+
+/* Background overlay - light gradient for text readability */
+.hero__bg {
+  position: absolute; /* Covers entire hero */
+  inset: 0; /* top/right/bottom/left: 0 */
+  z-index: 0; /* Behind content */
+  background:
+    linear-gradient(
+      105deg,
+      rgba(255, 255, 255, 0.95) 0%,    /* Light left side */
+      rgba(255, 255, 255, 0.8) 42%,   /* Slightly lighter center */
+      rgba(255, 255, 255, 0.35) 70%,  /* Transparent right */
+      rgba(255, 255, 255, 0.15) 100%  /* Very transparent far right */
+    ),
+    linear-gradient(
+      180deg, /* Vertical gradient */
+      rgba(255, 255, 255, 0.55) 0%, /* White tint top */
+      rgba(255, 255, 255, 0.3) 45%,  /* Lighter white middle */
+      rgba(240, 245, 240, 0.75) 100%  /* Light bottom */
+    );
+  background-color: var(--bg-light); /* Fallback color */
+}
+
+/* Stadium background image container */
+.hero__stadium {
+  position: absolute; /* Full coverage */
+  inset: 0; /* Covers entire hero */
+  z-index: 1; /* Above overlay */
+  overflow: hidden; /* Hide overflow */
+}
+
+/* Stadium SVG - positioned on right side */
+.hero__stadium svg {
+  position: absolute; /* Absolute positioning */
+  right: -5%; /* Slight right offset */
+  top: 50%; /* Vertical center */
+  transform: translateY(-50%); /* Center vertically */
+  width: 70%; /* 70% of container width */
+  height: auto; /* Maintain aspect ratio */
+  opacity: 0.95; /* Slight transparency */
+}
+
+/* Noise texture overlay - adds visual depth */
+.hero__noise {
+  position: absolute; /* Full coverage */
+  inset: 0; /* Covers entire hero */
+  z-index: 2; /* Above stadium */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  pointer-events: none; /* Click-through to content */
+}
+
+/* Hero content area - main text and CTA */
+.hero__content {
+  position: relative; /* Above background layers */
+  z-index: 5; /* Top layer */
+  width: 100%; /* Full width */
+  max-width: 1140px; /* Max container width */
+  margin: 0 auto; /* Center horizontally */
+  padding: calc(var(--nav-h) + 4rem) 2.5rem 6rem; /* Top padding accounts for navbar */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Stack vertically */
+  justify-content: center; /* Center content vertically */
+  min-height: 100vh; /* Minimum full height */
+  max-width: 640px; /* Limit content width for readability */
+}
+
+/* Location pill - shows city/region */
+.hero__location {
+  display: inline-flex; /* Inline flex for icon + text */
+  align-items: center; /* Vertically aligned */
+  gap: 0.45rem; /* Space between icon and text */
+  background: var(--color-green-dim); /* Dark green background */
+  border: 1px solid rgba(46, 204, 80, 0.3); /* Green border */
+  border-radius: var(--radius-full); /* Pill shape */
+  padding: 0.38rem 1rem; /* Internal spacing */
+  font-size: var(--fs-sm); /* Small font */
+  font-weight: 600; /* Semi-bold */
+  color: var(--color-green); /* Green text */
+  margin-bottom: 1.6rem; /* Space below */
+  width: fit-content; /* Only as wide as content */
+  animation: fadeUp 0.6s 0.05s both; /* Entrance animation */
+}
+
+.hero__location svg {
+  width: 14px; /* Icon width */
+  height: 14px; /* Icon height */
+  fill: var(--color-green); /* Green fill */
+  flex-shrink: 0; /* Don't shrink */
+}
+
+/* Main headline - large display text */
+.hero__headline {
+  font-family: var(--font-display); /* Display font */
+  font-weight: 900; /* Extra bold */
+  text-transform: uppercase; /* ALL CAPS */
+  line-height: 0.92; /* Tight line height */
+  margin-bottom: 1.5rem; /* Space below */
+  animation: fadeUp 0.6s 0.15s both; /* Entrance animation */
+}
+
+.hero__headline .line1 {
+  display: block; /* Separate line */
+  font-size: clamp(2.8rem, 5.5vw, 5rem); /* Responsive size */
+  color: var(--text-primary); /* White text */
+}
+
+.hero__headline .line2 {
+  display: block; /* Separate line */
+  font-size: clamp(3.2rem, 7vw, 6.2rem); /* Larger responsive size */
+  color: var(--color-green); /* Green text */
+  text-shadow: 0 0 60px rgba(46, 204, 80, 0.4); /* Green glow */
+}
+
+/* Description text - explains the service */
+.hero__desc {
+  font-size: var(--fs-md); /* Medium font size */
+  line-height: 1.68; /* Relaxed line height */
+  color: var(--text-secondary); /* Dark text for contrast */
+  max-width: 460px; /* Limit width for readability */
+  margin-bottom: 2.2rem; /* Space below */
+  animation: fadeUp 0.6s 0.25s both; /* Entrance animation */
+}
+
+/* CTA buttons container - holds primary and secondary buttons */
+.hero__cta {
+  display: flex; /* Horizontal layout */
+  gap: 1rem; /* Space between buttons */
+  flex-wrap: wrap; /* Wrap on mobile */
+  margin-bottom: 3rem; /* Space below */
+  animation: fadeUp 0.6s 0.35s both; /* Entrance animation */
+}
+
+/* Primary CTA button - green filled style */
+.hero__btn-primary {
+  display: inline-flex; /* Inline flex for icon + text */
+  align-items: center; /* Vertically aligned */
+  gap: 0.5rem; /* Space between icon and text */
+  background: var(--color-green); /* Green background */
+  color: #000;
+  padding: 0.88rem 2rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: var(--fs-base);
+  transition:
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.hero__btn-primary:hover {
+  background: var(--color-green-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-green);
+}
+
+.hero__btn-primary svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hero__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-white);
+  border: 1px solid var(--border-dark2);
+  color: var(--text-primary);
+  padding: 0.88rem 1.8rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: var(--fs-base);
+  transition:
+    background var(--transition),
+    border-color var(--transition);
+}
+
+.hero__btn-secondary:hover {
+  background: var(--bg-light);
+  border-color: var(--border-dark);
+}
+
+.hero__btn-secondary svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ── Statistics ── */
+.hero__stats {
+  display: flex;
+  gap: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-dark);
+  animation: fadeUp 0.6s 0.45s both;
+}
+
+.hero__stat {
+}
+
+.hero__stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.hero__stat-label {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 0.2rem;
+}
+
+/* ── Scroll indicator ── */
+.hero__scroll-hint {
+  position: absolute;
+  right: 1.8rem;
+  bottom: 2.5rem;
+  z-index: 10;
+  writing-mode: vertical-rl;
+  font-size: var(--fs-xs);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hero__scroll-hint::after {
+  content: "";
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(
+    to bottom,
+    var(--text-muted),
+    transparent
+  );
+}
+
+/* ── Slide dots ── */
+.hero__dots {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.hero__dot {
+  width: 28px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border-dark2);
+  transition: background 0.3s;
+}
+
+.hero__dot.active {
+  background: var(--color-green);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero__stadium {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__content {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  .hero__stats {
+    gap: 1.6rem;
+    flex-wrap: wrap;
+  }
+
+  .hero__cta {
+    flex-direction: column;
+  }
+
+  .hero__btn-primary,
+  .hero__btn-secondary {
+    justify-content: center;
+  }
+}
